@@ -5,24 +5,22 @@ function highlightHTML(
   ) {
     let highlightedHTML = originalHTML;
     let htmlPositions = [];
-  
-    // Sort the plainTextPositions array by start position.
+
     plainTextPositions.sort((a, b) => a.start - b.start);
   
-    // Iterate over the plainTextPositions array.
     for (const position of plainTextPositions) {
-      // Get the start and end positions of the word in the HTML content.
+    
       const start = position.start;
       const end = position.end;
   
-      // Calculate the start and end positions of the word in the HTML content, taking into account any HTML tags that may be present.
+  
       htmlPositions.push({
         start: findStartOfWord(originalHTML, start),
         end: findEndOfWord(originalHTML, end),
       });
     }
   
-    // Iterate over the htmlPositions array and highlight the words.
+ 
     for (const position of htmlPositions) {
       const { start, end } = position;
   
